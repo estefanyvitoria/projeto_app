@@ -1,0 +1,22 @@
+import calendar
+
+def criar_calendario(ano, mes, dias_disponiveis):
+    # Criar um calendário para o mês e ano especificados
+    calendario = calendar.monthcalendar(ano, mes)
+
+    # Iterar pelos dias do mês
+    for semana in calendario:
+        for dia in semana:
+            # Se o dia for 0 (representando um espaço em branco no calendário)
+            # ou se o dia não estiver na lista de dias disponíveis, marque como não disponível
+            if dia == 0 or dia not in dias_disponiveis:
+                print(f'{dia:2}', end=' ')
+            else:
+                print(f'{dia:2}', end='*') # Marcar dias disponíveis com um asterisco
+        print()
+
+# Exemplo de utilização
+ano = 2024
+mes = 4
+dias_disponiveis = [2, 3, 5, 7, 10, 12, 15, 18, 20, 22, 25, 28]  # Lista de dias disponíveis
+criar_calendario(ano, mes, dias_disponiveis)
