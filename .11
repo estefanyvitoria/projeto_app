@@ -1,0 +1,35 @@
+def marcar_horario(self, horario):
+        if horario in self.horarios:
+            if self.horarios[horario] == 'Disponível':
+                self.horarios[horario] = 'Indisponível'
+                print(f"Horário {horario} marcado com sucesso!")
+            else:
+                print(f"Horário {horario} já está indisponível.")
+        else:
+            print(f"Horário {horario} não existe na agenda.")
+
+    def desmarcar_horario(self, horario):
+        if horario in self.horarios:
+            if self.horarios[horario] == 'Indisponível':
+                self.horarios[horario] = 'Disponível'
+                print(f"Horário {horario} desmarcado com sucesso!")
+            else:
+                print(f"Horário {horario} já está disponível.")
+        else:
+            print(f"Horário {horario} não existe na agenda.")
+
+    def visualizar_agenda(self):
+        for horario, disponibilidade in self.horarios.items():
+            print(f"{horario}: {disponibilidade}")
+
+
+# Exemplo de utilização
+horarios_disponiveis = ['09:00', '10:00', '11:00', '14:00', '15:00']
+agenda = Agenda(horarios_disponiveis)
+
+agenda.marcar_horario('09:00')
+agenda.marcar_horario('10:00')
+agenda.desmarcar_horario('09:00')
+
+print("Visualização da agenda:")
+agenda.visualizar_agenda()l
